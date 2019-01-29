@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 
 
 const store = createStore(
-  reducer, applyMiddleware(thunk, logger));
+  reducer,
+  applyMiddleware(thunk, logger));
 
 export default store;

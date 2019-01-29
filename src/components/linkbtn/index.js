@@ -5,18 +5,18 @@ import PropTypes from 'prop-types';
 class LinkBtn extends Component {
 
     static propTypes = {
-        title: PropTypes.string,
+        label: PropTypes.string,
         to: PropTypes.string
     };
 
     state = {};
 
     render() {
-        const {to, title} = this.props;
+        const {to, label} = this.props;
         return (
             <div>
                 <NavLink exact to={to} className="nav-link" activeClassName="">
-                    {title}
+                    {label}
                 </NavLink>
             </div>
         );
