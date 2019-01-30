@@ -1,7 +1,7 @@
 import {LOG_IN, LOG_IN_FAILURE, LOG_OUT} from '../../utils/const';
 import {checkCredentials} from '../helpers/session';
 
-export function logIn(params) {
+export function logIn(params, cb) {
   console.log(params);
   return dispatch => {
     if (checkCredentials(params)) {
@@ -11,6 +11,7 @@ export function logIn(params) {
           name: params.username,
         }
       });
+      cb();
     } else {
       dispatch({
         type: LOG_IN_FAILURE,
