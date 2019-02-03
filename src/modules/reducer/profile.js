@@ -1,33 +1,33 @@
-import {FAIL, NEWS_GET, START, SUCCESS} from '../../utils/const';
+import {FAIL, PROFILE_GET, START, SUCCESS} from '../../utils/const';
 
-export const initialState = {
+
+const initialState = {
   data: null,
-  isLoading: false,
-  errorMsg: null
+  errorMsg: '',
+  isLoading: false
 };
 
 export default (state = initialState, action) => {
   const {type, payload} = action;
-
   switch (type) {
-    case NEWS_GET + START:
+    case PROFILE_GET + START:
       return {
         ...state,
         isLoading: true,
-        errorMsg: null
-      };
+        errorMsg: '',
+      }
 
-    case NEWS_GET + SUCCESS:
+    case PROFILE_GET + SUCCESS:
       return {
         ...state,
+        data: payload,
         isLoading: false,
-        data: payload
       };
 
-    case NEWS_GET + FAIL:
+    case PROFILE_GET + FAIL:
       return {
         ...state,
-        errorMsg: payload.errorMsg
+        errorMsg: action.payload.errorMsg,
       };
 
     default:

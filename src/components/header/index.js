@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import LinkBtn from '../linkbtn';
 
 class Header extends Component {
-  static defaultProps = {};
-
-  static propTypes = {};
-
-  state = {};
 
   render() {
     return (

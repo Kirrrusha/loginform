@@ -19,8 +19,6 @@ class NewsContainer extends Component {
     })
   };
 
-  state = {};
-
   render() {
     const {news: {isLoading, data, errorMsg}} = this.props;
     return (

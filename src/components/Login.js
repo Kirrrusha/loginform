@@ -50,7 +50,7 @@ class Login extends Component {
                         <input className="form-control" type="password" id="password" value={password}
                                onChange={this.onChangeHandler} data-field-name={'password'}/>
                     </div>
-                    <button type="submit" className="btn btn-primary">Отправить</button>
+                    <button type="submit" className="btn btn-primary">Войти</button>
                 </form>
             </div>
         );

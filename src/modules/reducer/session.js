@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_IN_FAILURE, LOG_OUT, START, SUCCESS} from '../../utils/const';
+import {FAIL, LOG_IN, LOG_OUT, START, SUCCESS} from '../../utils/const';
 
 
 const initialState = {
@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
         ...state,
         user: {
           email: payload.email,
+          id: payload.id
         },
         errorMsg: '',
       };
@@ -33,7 +34,7 @@ export default (state = initialState, action) => {
         errorMsg: '',
       };
 
-    case LOG_IN_FAILURE:
+    case LOG_IN + FAIL:
       return {
         ...state,
         errorMsg: action.payload.errorMsg,
