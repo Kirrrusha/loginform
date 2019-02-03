@@ -1,19 +1,27 @@
-import {LOG_IN, LOG_IN_FAILURE, LOG_OUT} from '../../utils/const';
+import {LOG_IN, LOG_IN_FAILURE, LOG_OUT, START, SUCCESS} from '../../utils/const';
 
 
 const initialState = {
   user: null,
   errorMsg: '',
+  loading: null
 };
 
 export default (state = initialState, action) => {
   const {type, payload} = action;
   switch (type) {
-    case LOG_IN:
+    case LOG_IN + START:
+      return {
+        ...state,
+        loading: true,
+        errorMsg: '',
+      }
+
+    case LOG_IN + SUCCESS:
       return {
         ...state,
         user: {
-          name: payload.name,
+          email: payload.email,
         },
         errorMsg: '',
       };

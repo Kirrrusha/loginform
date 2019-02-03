@@ -14,11 +14,11 @@ class LinkBtn extends Component {
     render() {
         const {to, label} = this.props;
         return (
-            <div>
+            <li>
                 <NavLink exact to={to} className="nav-link" activeClassName="">
                     {label}
                 </NavLink>
-            </div>
+            </li>
         );
     }
 }

@@ -1,28 +1,30 @@
 import React, {Component} from 'react';
-import Login from './components/Login';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import Header from './components/header';
 import Home from './components/Home';
-import News from './components/News';
 import NotFound from './components/NotFound';
-import PrivateRoute from "./containers/PrivateRoute";
-import Profile from "./components/Profile";
+import PrivateRoute from './containers/PrivateRoute';
+import ProfileContainer from './containers/ProfileContainer';
+import LoginContainer from './containers/LoginContainer';
+import NewsContainer from './containers/NewsContainer';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Header />
-        <div className="content">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/news" component={News} />
-            <Route path="/login" component={Login} />
-            <PrivateRoute path="/profile" component={Profile} />
-            <Route component={NotFound} />
-          </Switch>
+        <Header/>
+        <div className="container">
+          <div className='row'>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/news" component={NewsContainer}/>
+              <Route path="/login" component={LoginContainer}/>
+              <PrivateRoute path="/profile" component={ProfileContainer}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
         </div>
       </Provider>
     );
