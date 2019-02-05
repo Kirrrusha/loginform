@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Profile from '../components/Profile';
+import Profile from '../pages/Profile';
 import {getProfile, logOut} from '../modules/actions';
 import PropTypes from 'prop-types';
 
@@ -20,12 +20,12 @@ class ProfileContainer extends Component {
 
 
   render() {
-    const {user, profile: {isLoading, data, errorMsg}} = this.props;
+    const {user, profile: {isLoading, data, errorMsg}, logOut} = this.props;
     return (
       <div>
         {errorMsg && <p>{errorMsg}</p>}
         {isLoading ? <p>Loading...</p> : null}
-        {data && <Profile user={user} profile={data} />}
+        {data && <Profile user={user} profile={data} logOut={logOut} />}
       </div>
     );
   }

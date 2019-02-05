@@ -12,7 +12,7 @@ class Header extends Component {
             <LinkBtn to="/profile" label={'Профиль'}/>
             <LinkBtn to="/news" label={'Новости'}/>
             <LinkBtn to="/not-found" label={'404'}/>
-            <LinkBtn to="/login" label={'Логин'}/>
+            {/*<LinkBtn to="/login" label={'Логин'}/>*/}
           </ul>
         </div>
       </nav>

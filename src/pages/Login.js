@@ -27,6 +27,7 @@ class Login extends Component {
     }
 
     render() {
+        console.log(this.props);
         const {location, errorMsg} = this.props;
         const { from } = location.state || { from: { pathname: '/profile' } };
         const { email, password, redirectToPreviousRoute } = this.state;

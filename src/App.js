@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import store from './store';
-import Header from './components/header';
-import Home from './components/Home';
-import NotFound from './components/NotFound';
-import PrivateRoute from './containers/PrivateRoute';
-import ProfileContainer from './containers/ProfileContainer';
-import LoginContainer from './containers/LoginContainer';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import Home from './pages/Home';
 import NewsContainer from './containers/NewsContainer';
+import LoginContainer from './containers/LoginContainer';
+import ProfileContainer from './containers/ProfileContainer';
+import NotFound from './pages/NotFound';
+import Header from './components/header';
+import PrivateRoute from './containers/PrivateRoute';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <div className="container-full">
         <Header/>
         <div className="container">
           <div className='row'>
             <Switch>
+              <Redirect exact from="/" to="/login"/>
               <Route exact path="/" component={Home}/>
               <Route path="/news" component={NewsContainer}/>
               <Route path="/login" component={LoginContainer}/>
@@ -26,9 +27,16 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      </Provider>
+      </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isAuth: state.session.user,
+  }
+}
+
+// export default connect(mapStateToProps)(App);
 export default App;
