@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Profile from '../pages/Profile';
 import {getProfile, logOut} from '../modules/actions';
-import PropTypes from 'prop-types';
 
 class ProfileContainer extends Component {
   // static propTypes = {
@@ -33,7 +32,7 @@ class ProfileContainer extends Component {
 
 const mapStateToProps = state => ({
   user: state.session.user,
-  profile: state.profile
+  profile: state.profile,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -41,5 +40,4 @@ const mapDispatchToProps = dispatch => ({
   onGetProfile: (params => dispatch(getProfile(params)))
 });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);

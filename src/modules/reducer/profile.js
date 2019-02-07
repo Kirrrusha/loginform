@@ -1,4 +1,4 @@
-import {FAIL, PROFILE_GET, START, SUCCESS} from '../../utils/const';
+import {FAIL, LOG_OUT, PROFILE_GET, START, SUCCESS} from '../../utils/const';
 
 
 const initialState = {
@@ -28,6 +28,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         errorMsg: action.payload.errorMsg,
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        isLoading: false,
+        data: null,
+        errorMsg: '',
       };
 
     default:

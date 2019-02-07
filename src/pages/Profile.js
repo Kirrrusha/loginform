@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Redirect} from 'react-router-dom';
 
 class Profile extends Component {
 
@@ -9,11 +10,12 @@ class Profile extends Component {
       email: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
     }).isRequired,
-    profile: PropTypes.object
+    profile: PropTypes.object,
+    isExit: PropTypes.bool
   };
 
   render() {
-    const {user, profile} = this.props;
+    const {user, profile, isExit} = this.props;
     return (
       <div>
         <h2>Профиль</h2>

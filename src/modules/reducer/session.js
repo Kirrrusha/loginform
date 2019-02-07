@@ -4,7 +4,7 @@ import {FAIL, LOG_IN, LOG_OUT, START, SUCCESS} from '../../utils/const';
 const initialState = {
   user: null,
   errorMsg: '',
-  loading: null
+  loading: null,
 };
 
 export default (state = initialState, action) => {
@@ -31,6 +31,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: null,
+        loading: false,
         errorMsg: '',
       };
 
